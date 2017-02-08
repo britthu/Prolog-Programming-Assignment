@@ -19,12 +19,29 @@ sum-up-numbers-general([H|T], N):-
     sum-up-numbers-general(T,Value),
     N is H+Value.
 
-sum-up-numbers-general([H|T],N):-%error: syntax
+sum-up-numbers-general([H|T],N):-
     atom(H),
-    sum-up-numbers-general(T,N).%error: logic
+    sum-up-numbers-general(T,N).
 
 sum-up-numbers-general([H|T], N):-
     sum-up-numbers-general(T,Value),
     N is H + Value.
 
 
+
+%number three
+%newlist([], []).
+newlist([X|Y], L):-
+    number(X),
+    append([X|Y], L),
+    newlist(Y,L).
+
+newlist([X|Y], L):-
+    \+number(X),
+    newlist(Y, L).
+
+sortlist([X|Y], R).
+
+
+%number four
+common-unique-elements([],[],[]).
