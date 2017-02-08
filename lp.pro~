@@ -1,7 +1,17 @@
+%number one
 sum-up-numbers-simple([], 0).
 sum-up-numbers-simple([H|T], N):-
     number(H),
-    sum-up-numbers-simple(T,Result),
-    N is H+Result.
+    sum-up-numbers-simple(T,Value),
+    N is H+Value.
 
+sum-up-numbers-simple([H|T], N):-
+    \+number(H),
+    sum-up-numbers-simple(T,N).
+
+
+
+%number two
+sum-up-numbers-general([], 0).
+sum-up-number-general([[]], 0).
 
