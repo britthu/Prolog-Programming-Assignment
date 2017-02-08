@@ -45,3 +45,9 @@ sortlist([X|Y], R).
 
 %number four
 common-unique-elements([],[],[]).
+common-unique-elements(H|T,L,X|Y):-
+   member(H,L).
+
+member(X,[X|_]).
+member(X,[_|Z]):-
+    member(X,Z).
