@@ -42,6 +42,17 @@ newlist([X|Y], L):-
 
 sortlist([], []).
 
+min-value([H,X|T], L):-
+    H=<X,
+    min-value([H|T],L).
+
+min-value([H,X|T], L):-
+    H>X,
+    min-value([X|T],L).
+
+
+
+
 
 %number four
 common-unique-elements([],[],[]).
@@ -49,8 +60,9 @@ common-unique-elements([H|T],L,[H|Y]):-
    member(H,L),
    common-unique-elements(T,L,Y).
 
+common-unique-elements([_|T],L,Y):-
     common-unique-elements(T,L,Y).
 
-member(X,[X|Z]).
-member(X,[H|Z]):-
+member(X,[X,_]).
+member(X,[_|Z]):-
     member(X,Z).
