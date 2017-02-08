@@ -19,7 +19,7 @@ sum-up-numbers-general([H|T], N):-
     sum-up-numbers-general(T,Value),
     N is H+Value.
 
-sum-up-numbers-general([H|T],N):-
+sum-up-numbers-general([H|T), N):-
     atom(H),
     sum-up-numbers-general(T,N).
 
