@@ -40,14 +40,17 @@ newlist([X|Y], L):-
     \+number(X),
     newlist(Y, L).
 
-sortlist([X|Y], R).
+sortlist([], []).
 
 
 %number four
 common-unique-elements([],[],[]).
-common-unique-elements(H|T,L,X|Y):-
-   member(H,L).
+common-unique-elements([H|T],L,[H|Y]):-
+   member(H,L),
+   common-unique-elements(T,L,Y).
 
-member(X,[X|_]).
-member(X,[_|Z]):-
+    common-unique-elements(T,L,Y).
+
+member(X,[X|Z]).
+member(X,[H|Z]):-
     member(X,Z).
