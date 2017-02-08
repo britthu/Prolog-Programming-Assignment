@@ -1,0 +1,4 @@
+sum-up-numbers-simple([], 0)
+sum-up-numbers-simple([H|T], N):-
+
+
